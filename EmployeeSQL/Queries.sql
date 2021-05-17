@@ -14,6 +14,17 @@ SET datestyle = 'ISO,MDY';
 
 SELECT TO_DATE('7/25/1953','MM/DD/YYYY');
 
+SELECT TO_DATE(e.birth_date,'MM/DD/YYYY')
+
+SELECT EXTRACT(YEAR FROM TO_DATE(birth_date,'MM/DD/YYYY'))
+FROM employee
+
+SELECT first_name, last_name, TO_DATE(e.birth_date,'MM/DD/YYYY')
+FROM employee AS e
+WHERE EXTRACT(YEAR FROM TO_DATE(e.birth_date,'MM/DD/YYYY')) = 1957;
+
+
+
 -- 1. Employee Details
 SELECT
 	e.emp_no,
@@ -26,6 +37,15 @@ JOIN salary AS s
 ON (e.emp_no = s.emp_no)
 ORDER BY e.emp_no;
 
+
+-- 2. Employees hired in 1986
+SELECT
+	e.first_name,
+	e.last_name,
+	e.hire_date
+FROM employee AS e
+WHERE EXTRACT(YEAR FROM TO_DATE(e.hire_date,'MM/DD/YYYY')) = 1986
+ORDER BY e.hire_date;
 
 
 -- 5. Employees first name "Hercules" & last name begin with "B"
