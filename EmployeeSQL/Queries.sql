@@ -126,6 +126,9 @@ GROUP BY e.last_name
 ORDER BY "Frequency Count" DESC;
 
 
-
+-- Epilogue
+SELECT e.emp_no, e.first_name, e.last_name
+FROM employee AS e
+WHERE e.emp_no = 499942;
 
 
