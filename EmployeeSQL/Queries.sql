@@ -5,26 +5,26 @@ SELECT * FROM dept_employee;
 SELECT * FROM dept_manager;
 SELECT * FROM salary;
 
-
+-- Date management
 SHOW datestyle;
-SET datestyle TO MDY;
 SET datestyle TO DMY;
+SET datestyle TO MDY;
 SET datestyle = 'ISO,MDY';
-
 
 SELECT TO_DATE('7/25/1953','MM/DD/YYYY');
 
-SELECT TO_DATE(e.birth_date,'MM/DD/YYYY')
+SELECT TO_DATE(birth_date,'MM/DD/YYYY')
+FROM employee;
 
 SELECT EXTRACT(YEAR FROM TO_DATE(birth_date,'MM/DD/YYYY'))
-FROM employee
+FROM employee;
 
 SELECT first_name, last_name, TO_DATE(e.birth_date,'MM/DD/YYYY')
 FROM employee AS e
 WHERE EXTRACT(YEAR FROM TO_DATE(e.birth_date,'MM/DD/YYYY')) = 1957;
 
 
-
+-- QUERIES:
 -- 1. Employees Details
 SELECT
 	e.emp_no,
@@ -89,6 +89,38 @@ WHERE
 ORDER BY e.first_name, e.last_name;
 
 
+-- 6. Employees in Sales department
+SELECT
+	e.emp_no,
+	e.last_name,
+	e.first_name,
+	d.dept_name
+FROM dept_employee AS de
+LEFT JOIN employee AS e
+ON de.emp_no = e.emp_no
+LEFT JOIN department AS d
+ON de.dept_id = d.dept_id
+WHERE d.dept_name = 'Sales'
+ORDER BY e.emp_no;
+
+
+-- 7. Employees in Sales & Development department
+SELECT
+	e.emp_no,
+	e.last_name,
+	e.first_name,
+	d.dept_name
+FROM dept_employee AS de
+LEFT JOIN employee AS e
+ON de.emp_no = e.emp_no
+LEFT JOIN department AS d
+ON de.dept_id = d.dept_id
+WHERE d.dept_name = 'Sales' OR d.dept_name = 'Development'
+ORDER BY e.emp_no;
+
+
+-- 8. Frequency count of last names
+-- (how many employees share each last name)
 
 
 
