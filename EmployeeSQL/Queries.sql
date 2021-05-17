@@ -48,6 +48,21 @@ WHERE EXTRACT(YEAR FROM TO_DATE(e.hire_date,'MM/DD/YYYY')) = 1986
 ORDER BY e.hire_date;
 
 
+-- 3. Manager per department 
+SELECT
+	dm.dept_id,
+	d.dept_name,
+	dm.emp_no,
+	e.last_name,
+	e.first_name
+FROM dept_manager AS dm
+LEFT JOIN department AS d
+ON dm.dept_id = d.dept_id
+LEFT JOIN employee AS e
+ON dm.emp_no = e.emp_no
+ORDER BY dm.dept_id;
+
+
 -- 5. Employees first name "Hercules" & last name begin with "B"
 SELECT
 	e.first_name,
