@@ -120,7 +120,11 @@ ORDER BY e.emp_no;
 
 
 -- 8. Frequency count of last names
--- (how many employees share each last name)
+SELECT e.last_name, COUNT(e.emp_no) AS "Frequency Count"
+FROM employee AS e
+GROUP BY e.last_name
+ORDER BY "Frequency Count" DESC;
+
 
 
 
