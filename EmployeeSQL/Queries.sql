@@ -7,26 +7,26 @@ SELECT * FROM dept_manager;
 SELECT * FROM salary;
 
 -- b) Cast types
-SELECT CAST(emp_no AS money) FROM employee;
-SELECT CAST(salary AS integer) FROM salary;
+-- SELECT CAST(emp_no AS money) FROM employee;
+-- SELECT CAST(salary AS integer) FROM salary;
 
 -- b) Date management
-SHOW datestyle;
-SET datestyle TO DMY;
-SET datestyle TO MDY;
-SET datestyle = 'ISO,MDY';
+-- SHOW datestyle;
+-- SET datestyle TO DMY;
+-- SET datestyle TO MDY;
+-- SET datestyle = 'ISO,MDY';
 
-SELECT TO_DATE('7/25/1953','MM/DD/YYYY');
+-- SELECT TO_DATE('7/25/1953','MM/DD/YYYY');
 
-SELECT TO_DATE(birth_date,'MM/DD/YYYY')
-FROM employee;
+-- SELECT TO_DATE(birth_date,'MM/DD/YYYY')
+-- FROM employee;
 
-SELECT EXTRACT(YEAR FROM TO_DATE(birth_date,'MM/DD/YYYY'))
-FROM employee;
+-- SELECT EXTRACT(YEAR FROM TO_DATE(birth_date,'MM/DD/YYYY'))
+-- FROM employee;
 
-SELECT first_name, last_name, TO_DATE(e.birth_date,'MM/DD/YYYY')
-FROM employee AS e
-WHERE EXTRACT(YEAR FROM TO_DATE(e.birth_date,'MM/DD/YYYY')) = 1957;
+-- SELECT first_name, last_name, TO_DATE(e.birth_date,'MM/DD/YYYY')
+-- FROM employee AS e
+-- WHERE EXTRACT(YEAR FROM TO_DATE(e.birth_date,'MM/DD/YYYY')) = 1957;
 
 
 -- QUERIES:
@@ -36,7 +36,7 @@ SELECT
 	e.last_name,
 	e.first_name,
 	e.sex,
-	s.salary	
+	CAST (s.salary AS MONEY)
 FROM employee AS e
 JOIN salary AS s
 ON (e.emp_no = s.emp_no)
@@ -142,7 +142,7 @@ CREATE VIEW salary_summary AS
 SELECT
 	t.title_name,
 	COUNT(e.emp_no) AS "emp_count",
-	SUM(s.salary) AS "sum_salary"
+	CAST(AVG(s.salary) AS MONEY) AS "sum_salary"
 FROM employee AS e
 LEFT JOIN title AS t ON e.title_id = t.title_id
 LEFT JOIN salary AS s ON e.emp_no = s.emp_no
@@ -150,4 +150,5 @@ GROUP BY t.title_name
 ORDER BY "emp_count";
 
 SELECT * FROM salary_summary;
+-- DROP VIEW salary_summary;
 
