@@ -1,4 +1,4 @@
--- Drop existing tables
+-- a) Drop existing tables
 DROP TABLE IF EXISTS department;
 DROP TABLE IF EXISTS title;
 DROP TABLE IF EXISTS employee;
@@ -7,6 +7,7 @@ DROP TABLE IF EXISTS dept_manager;
 DROP TABLE IF EXISTS salary;
 
 
+-- TABLE SCHEMA:
 -- Create new tables
 CREATE TABLE department (
 	dept_id CHAR(5) NOT NULL, -- CHAR(4)
