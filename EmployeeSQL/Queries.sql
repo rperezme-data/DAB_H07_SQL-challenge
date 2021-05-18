@@ -1,3 +1,4 @@
+-- a) View tables
 SELECT * FROM department;
 SELECT * FROM title;
 SELECT * FROM employee;
@@ -5,7 +6,11 @@ SELECT * FROM dept_employee;
 SELECT * FROM dept_manager;
 SELECT * FROM salary;
 
--- Date management
+-- b) Cast types
+SELECT CAST(emp_no AS money) FROM employee;
+SELECT CAST(salary AS integer) FROM salary;
+
+-- b) Date management
 SHOW datestyle;
 SET datestyle TO DMY;
 SET datestyle TO MDY;
@@ -126,9 +131,23 @@ GROUP BY e.last_name
 ORDER BY "Frequency Count" DESC;
 
 
--- Epilogue
+-- EPILOGUE
 SELECT e.emp_no, e.first_name, e.last_name
 FROM employee AS e
 WHERE e.emp_no = 499942;
 
+
+-- BONUS ANALYSIS
+CREATE VIEW salary_summary AS
+SELECT
+	t.title_name,
+	COUNT(e.emp_no) AS "emp_count",
+	SUM(s.salary) AS "sum_salary"
+FROM employee AS e
+LEFT JOIN title AS t ON e.title_id = t.title_id
+LEFT JOIN salary AS s ON e.emp_no = s.emp_no
+GROUP BY t.title_name
+ORDER BY "emp_count";
+
+SELECT * FROM salary_summary;
 
