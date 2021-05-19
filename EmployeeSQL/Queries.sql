@@ -142,7 +142,7 @@ CREATE VIEW salary_summary AS
 SELECT
 	t.title_name,
 	COUNT(e.emp_no) AS "emp_count",
-	CAST(AVG(s.salary) AS MONEY) AS "sum_salary"
+	CAST(AVG(s.salary) AS MONEY) AS "salary_avg"
 FROM employee AS e
 LEFT JOIN title AS t ON e.title_id = t.title_id
 LEFT JOIN salary AS s ON e.emp_no = s.emp_no
