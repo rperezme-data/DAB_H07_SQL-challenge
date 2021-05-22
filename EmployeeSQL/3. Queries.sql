@@ -1,32 +1,10 @@
--- a) View tables
+-- Display tables
 SELECT * FROM department;
 SELECT * FROM title;
 SELECT * FROM employee;
 SELECT * FROM dept_employee;
 SELECT * FROM dept_manager;
 SELECT * FROM salary;
-
--- b) Cast types
--- SELECT CAST(emp_no AS money) FROM employee;
--- SELECT CAST(salary AS integer) FROM salary;
-
--- b) Date management
--- SHOW datestyle;
--- SET datestyle TO DMY;
--- SET datestyle TO MDY;
--- SET datestyle = 'ISO,MDY';
-
--- SELECT TO_DATE('7/25/1953','MM/DD/YYYY');
-
--- SELECT TO_DATE(birth_date,'MM/DD/YYYY')
--- FROM employee;
-
--- SELECT EXTRACT(YEAR FROM TO_DATE(birth_date,'MM/DD/YYYY'))
--- FROM employee;
-
--- SELECT first_name, last_name, TO_DATE(e.birth_date,'MM/DD/YYYY')
--- FROM employee AS e
--- WHERE EXTRACT(YEAR FROM TO_DATE(e.birth_date,'MM/DD/YYYY')) = 1957;
 
 
 -- QUERIES:
@@ -138,6 +116,7 @@ WHERE e.emp_no = 499942;
 
 
 -- BONUS ANALYSIS
+-- Create view
 CREATE VIEW salary_summary AS
 SELECT
 	t.title_name,
@@ -149,6 +128,9 @@ LEFT JOIN salary AS s ON e.emp_no = s.emp_no
 GROUP BY t.title_name
 ORDER BY "emp_count";
 
+-- Display view
 SELECT * FROM salary_summary;
+
+-- Drop view
 -- DROP VIEW salary_summary;
 
