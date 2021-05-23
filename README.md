@@ -30,7 +30,9 @@ SQL statements were used to query data from the database in order to list employ
 + Grouping (data aggregation)
 + Type Casting
 
-![Queries](EmployeeSQL/Images/Queries.png) ![Summary](EmployeeSQL/Images/Salary_Summary.png)
+| Query | Result Table |
+| --- | --- |
+| ![Queries](EmployeeSQL/Images/Queries.png) | ![Summary](EmployeeSQL/Images/Salary_Summary.png) |
 
 ##### 4. Data Visualization
 A statistical analysis was carried out to validate salary data and the results were plotted to generate a visual outcome:
