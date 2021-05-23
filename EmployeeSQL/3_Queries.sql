@@ -118,7 +118,6 @@ WHERE e.emp_no = 499942;
 -- BONUS ANALYSIS
 -- Create view
 CREATE VIEW salary_summary AS
-
 SELECT
 	t.title_name,
 	COUNT(e.emp_no) AS "emp_count",
