@@ -2,7 +2,7 @@
 ### Data Modeling, Engineering & Analysis of a relational employee database using SQL
 
 #### Description
-The scope of this project is to design a database schema to hold data contained in CSV files, import the data into a Relational Database Management System (RDMS) and execute queries to analyse legacy data of employees of a sample corporation.
+The scope of this project is to design a database schema to hold data contained in CSV files, import the data into a Relational Database Management System (RDMS) and execute queries to analyse employees legacy data of a sample corporation.
 
 #### Script Summary
 This script takes advantage of PostgreSQL as the RDMS along with pgAdmin for the user interface. For further analysis and data visualization, the SQL database was imported into Pandas using SQLAlchemy and Jupyter Notebook.
@@ -29,11 +29,11 @@ SQL statements were used to query data from the database in order to list employ
 + Type Casting
 
 ##### 4. Data Visualization
-A statistical analysis was carried out to validate salary data and the results were plotted to generate a visual outcome.
+A statistical analysis was carried out to validate salary data and the results were plotted to generate a visual outcome:
 
 ![Histogram](EmployeeSQL/Images/Histogram.png)
 
 ![Combined Plot](EmployeeSQL/Images/Employee_Salary.png)
 
 ##### Note
-Jupyter Notebook `d_Analysis.ipynb` is not correctly displayed in the GitHub interface. It is strongly suggested to download these files in order to run them natively.
+Jupyter Notebook `4_Analysis.ipynb` is not correctly displayed in the GitHub interface. It is strongly suggested to download these files in order to run them natively.
