@@ -39,7 +39,11 @@ A statistical analysis was carried out to validate salary data and the results w
 
 ![Histogram](EmployeeSQL/Images/Histogram.png)
 
+The salary distribution depicted in the histogram shows a typical behaviour.
+
 ![Combined](EmployeeSQL/Images/Employee_Salary.png)
+
+The number of employees per job title looks reasonable, but the average salary per category makes. This should lead to a deeper analysis in order to discard spurious salary values.
 
 ##### Note
 Jupyter Notebook `4_Analysis.ipynb` is not correctly displayed in the GitHub interface. It is strongly suggested to download related files in order to run them natively.
